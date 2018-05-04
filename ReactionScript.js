@@ -47,8 +47,29 @@
 			setTimeout(shapeAppear, Math.random() * 2000);
 		}
 
-		appearAfter();
 		
+		var timeTaken = 0;
+
+		$("#startButton").click(function () { 
+
+			$("#gameIsOn").css("display", "block");
+			$(".textSection").css("background-color", "green");
+
+			if (timeTaken > 0){
+				timeTaken = 0;
+				$("#timeTaken").html("");
+			}
+			if (lowestScore > 0){
+				lowestScore = 0;
+				$("#lowestScore").html("");
+			}
+
+			if (clicks > 0){
+				clicks = 0;
+				$("#numberClicks").html("");
+			}
+			appearAfter();
+
 		document.getElementById("shape").onclick = function () {
 			++clicks;
 
@@ -60,7 +81,7 @@
 
 			var endTime = new Date().getTime();
 
-			var timeTaken = (startTime - endTime) / 1000;
+			timeTaken = (startTime - endTime) / 1000;
 
 			if (lowestScore == 0) {
 				lowestScore = Math.abs(timeTaken);
@@ -78,3 +99,12 @@
 			appearAfter();
 
 		}
+
+	});
+
+		$("#stopButton").click(function () { 
+			$(".textSection").css("background-color", "#0099ff");
+			$("#gameIsOn").css("display", "none");
+			$("#shape").css("display", "none");
+			timeTaken = 0;
+		});
