@@ -47,11 +47,25 @@
 			setTimeout(shapeAppear, Math.random() * 2000);
 		}
 
-		
 		var timeTaken = 0;
+		var gameMode = 1;
+
+		$('input:radio[name="gameMode"]').change(function () { 
+
+			if ($(this).val() == 1) { 
+			 gameMode = 1;
+			} else {
+			 gameMode = 2;
+			}
+
+			});
+
+
+	
 
 		$("#startButton").click(function () { 
 
+			if (gameMode == 1) {
 			$("#gameIsOn").css("display", "block");
 			$(".textSection").css("background-color", "green");
 
@@ -100,8 +114,14 @@
 
 		}
 
+	} else {
+		alert('fast mode');	
+	}
+
+
 	});
 
+	
 		$("#stopButton").click(function () { 
 			$(".textSection").css("background-color", "#0099ff");
 			$("#gameIsOn").css("display", "none");

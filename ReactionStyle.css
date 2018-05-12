@@ -7,7 +7,7 @@
 		}
 
 		#shapeSection {
-			margin: 0 auto;
+			margin: 5 auto;
 			width: 1000px;
 			height: 100%;
 			border: 5px #000000 solid;
@@ -51,6 +51,22 @@
 	    	font-size: 19px;
 	    	font-weight: 750;
 	    }
+
+	    .modeSection {
+			border: 2px #000 solid;
+			border-radius: 1em;
+			background-color: #0099ff;
+			margin: 5px;
+			text-align: justify;
+			font-size: 20px;
+			color: #000000;
+			float: left;
+			width: 95%;
+		}
+
+		.modeSection h4 {
+			text-align: center;
+		}
 
 
 		@media all and (max-width:500px){
