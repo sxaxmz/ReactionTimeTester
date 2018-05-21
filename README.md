@@ -1,12 +1,2 @@
 # ReactionTimeTester
-This is a simple game to help track the reaction time using Javascript.
-
-#Improve:
-
-1)Modes
-
-2)UI design
-
-#ToDo:
-
-1) Modes -> Normal (Default mode)  and Fast (New mode)
+This is a simple game to help track the reaction time of the user throught 2 different modes based on selection. This game was developed using Javascript.

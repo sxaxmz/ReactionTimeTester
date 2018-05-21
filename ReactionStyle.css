@@ -68,6 +68,10 @@
 			text-align: center;
 		}
 
+		#missedSection {
+			display: none;
+		}
+
 
 		@media all and (max-width:500px){
 

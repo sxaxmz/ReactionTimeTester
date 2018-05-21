@@ -4,12 +4,22 @@
 		var startTime = new Date().getTime();
 		var clicks = 0;
 		var lowestScore= 0;
-		var shapeDuration = 0.0000;
 
+
+		//timer
 		var counter = 900;
 		var min;
 		var sec;
 		var timerSection;	
+
+
+		//fastMode
+		var shapeTime;
+		var shapeDuration = ((Math.random() * 15) + 1) * 100;
+		var shapeInterval;
+		var shapes = 0;
+		var missedClicks = 0;
+
 
 		function convertSecond (second){
 			min = Math.floor(second / 60);
@@ -43,6 +53,7 @@
 			var width = (Math.random() * 200) + 100;
 			var height = (Math.random() * 200) + 100;
 
+
 			if (Math.random() > 0.5){
 				document.getElementById("shape").style.borderRadius = "50%";
 			} else {
@@ -62,37 +73,6 @@
 
 		function appearAfter() {
 			setTimeout(shapeAppear, Math.random() * 2000);
-		}
-
-		function shapeAppearModeFast (){
-
-			var top = Math.random() * 400;
-			var left = Math.random() * 400;
-			var width = (Math.random() * 200) + 100;
-			var height = (Math.random() * 200) + 100;
-
-			if (Math.random() > 0.5){
-				document.getElementById("shape").style.borderRadius = "50%";
-			} else {
-				document.getElementById("shape").style.borderRadius = "0";
-			}
-
-			document.getElementById("shape").style.top =  top + "px";
-			document.getElementById("shape").style.left = left + "px";
-			document.getElementById("shape").style.width =  width + "px";
-			document.getElementById("shape").style.height = height + "px";
-			document.getElementById("shape").style.backgroundColor =  getRandomColor();
-
-			document.getElementById("shape").style.display = "block";
-
-			  var min = 0.399,
-			      max = 0.999;
-			  shapeDuration = Math.floor(Math.random() * (max - min) ); //Generate Random number between 5 - 10
-			  alert('Wait for ' + shapeDuration + ' seconds');
-		}
-
-		function appearAfterModeFast() {
-			setTimeout(shapeAppearModeFast, shapeDuration * 2000);
 		}
 
 
@@ -143,6 +123,8 @@
 			}
 
 			if (gameMode == 1) {
+
+			$("#missedSection").css("display", "none");
 			$("#gameIsOn").css("display", "block");
 			$(".textSection").css("background-color", "green");
 
@@ -180,27 +162,22 @@
 
 	} else {
 
-		alert('Fast Mode');
+		$("#missedSection").css("display", "block");
+		//alert('Fast Mode');
 
-		/**counter = setInterval(timer, 10);
-
-		while (counter <=shapeDuration) {
-			 appearAfterModeFast();
-		}  else {
-		alert('fast mode');	
-
-			appearAfterModeFast();
+		$("#gameIsOn").css("display", "block");
+		$(".textSection").css("background-color", "green");
 
 		document.getElementById("shape").onclick = function () {
 			++clicks;
 
 			if (clicks > 0){
 				document.getElementById("numberClicks").innerHTML = clicks;
+				
 			}
 
 			document.getElementById("shape").style.display = "none";
 
-			shapeAppearModeFast();
 			var endTime = new Date().getTime();
 
 			timeTaken = (startTime - endTime) / 1000;
@@ -218,11 +195,21 @@
 
 			document.getElementById("timeTaken").innerHTML = Math.abs(timeTaken) + "s";
 
-			appearAfterModeFast();
-
-
 		}
-	} **/
+
+		shapeInterval = setInterval(function shapeDuration() { shapeTime =  ((Math.random() * 10) + 1) * 1000; 
+																//shapeDuration = shapeTime * 10000;
+																shapes++;
+																missedClicks = shapes - clicks;
+																$("#missedClicks").html(missedClicks);
+																
+																	console.log(shapeTime); 
+																	console.log(shapes);
+																	shapeAppear();
+																							}, shapeDuration);
+
+		
+
 } 
 
 
@@ -232,6 +219,8 @@
 		$("#stopButton").click(function () { 
 
 			clearInterval(timerSection);
+
+			clearInterval(shapeInterval);
 
 			$(".textSection").css("background-color", "#0099ff");
 			$("#gameIsOn").css("display", "none");
