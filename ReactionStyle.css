@@ -8,11 +8,11 @@
 
 		#shapeSection {
 			margin: 5 auto;
+			margin-right: : 40px;
 			width: 1000px;
 			height: 100%;
 			border: 5px #000000 solid;
 			background-color: #ffffff;
-			margin-right: 10px;
 		}
 
 		.text {
@@ -72,16 +72,134 @@
 			display: none;
 		}
 
+		@media all and (min-width: 1024px) and (max-width:1300px) {
+			.textSection { 
+	         float:none;
+	         width:100%; 
+	        }
 
-		@media all and (max-width:500px){
+	        #shapeSection {
+	        	width: 105%;
+	        	height: 490px;
+	        }
 
-        .textSection { 
-         float:none;
-         width:100%; 
-        }
+	        .modeSection {
+	        	width: 100%
+			}
 
-        #shapeSection {
-        	width: 105%;
-        }
+			#shape {
+				max-width: 70px;
+				max-height: 70px;
+				position: fixed;
+			}
+		}
 
-    }
+		@media all and (min-width: 720px) and (max-width:1023px) {
+			.textSection { 
+	         float:none;
+	         width:100%; 
+	        }
+
+	        #shapeSection {
+	        	width: 580px;
+	        	height: 420px;
+	        }
+
+	        .modeSection {
+	        	width: 100%
+			}
+
+			#shape {
+				max-width: 70px;
+				max-height: 70px;
+				position: fixed;
+			}
+		}
+
+		@media all and (min-width: 500px) and (max-width:719px) {
+			.textSection { 
+	         float:none;
+	         width:100%; 
+	        }
+
+	        #shapeSection {
+	        	width: 105%;
+	        	height: 420px;
+	        }
+
+	        .modeSection {
+	        	width: 100%
+			}
+
+			#shape {
+				max-width: 50px;
+				max-height: 50px;
+				position: fixed;
+			}
+		}
+
+		@media all and (max-width:499px) and (min-width:421px){
+			.textSection { 
+	         float:none;
+	         width:100%; 
+	        }
+
+	        #shapeSection {
+	        	width: 105%;
+	        	height: 420px;
+	        }
+
+	        .modeSection {
+	        	width: 100%
+			}
+
+			#shape {
+				max-width: 50px;
+				max-height: 50px;
+				position: fixed;
+			}
+		}
+
+		@media all and (max-width:420px) and (min-width:371px){
+			.textSection { 
+	         float:none;
+	         width:100%; 
+	        }
+
+	        #shapeSection {
+	        	width: 105%;
+	        	height: 420px;
+	        }
+
+	        .modeSection {
+	        	width: 100%
+			}
+
+			#shape {
+				max-width: 50px;
+				max-height: 50px;
+				position: fixed;
+			}
+		}
+
+	    @media all and (max-width:370px){
+		    .textSection { 
+	         float:none;
+	         width:100%; 
+	        }
+
+	        #shapeSection {
+	        	width: 105%;
+	        	height: 420px;
+	        }
+
+	        .modeSection {
+	        	width: 100%
+			}
+
+			#shape {
+				max-width: 50px;
+				max-height: 50px;
+				position: fixed;
+			}
+	    }
